@@ -1,6 +1,7 @@
 import numpy as np
 import keras
 from keras.datasets import mnist
+from keras.models import load_model
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 x_train = x_train.reshape(-1, 28, 28, 1).astype(np.float32)
@@ -30,7 +31,13 @@ model.fit(x_train, y_train, epochs=5, batch_size=32)
 loss, accuracy = model.evaluate(x_test, y_test)
 
 print('accuracy', accuracy)
-# accuracy: 0.991
+# accuracy > 0.99
+
+model.save('my_model.h5')
+
+# model = load_model('my_model.h5')
+# loss, accuracy = model.evaluate(x_test, y_test)
+# print('accuracy', accuracy)
 
 
 

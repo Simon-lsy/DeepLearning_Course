@@ -4,6 +4,7 @@ from keras import backend as K
 from matplotlib import pyplot as plt
 import pickle
 
+
 (x_train, y_train), (x_test, y_test) = keras.datasets.cifar10.load_data()
 x_train = x_train.astype(np.float32)
 x_test = x_test.astype(np.float32)
@@ -83,8 +84,11 @@ if __name__ == '__main__':
 
     loss, accuracy = model.evaluate(x_test, y_test)
     print('accuracy', accuracy)
+    # accuracy > 75%
 
     model.save(mode+'.h5')
+
+
 
 
 
